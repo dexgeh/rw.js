@@ -9,6 +9,7 @@ var server = http.createServer(function(req, res) {
   if (req.headers['content-type'] !== 'application/json') {
     res.writeHead(405);
     res.end();
+    return;
   }
   if (req.method === 'GET') {
     fs.readFile(prefix + req.url, 'utf8', function(err, data) {
